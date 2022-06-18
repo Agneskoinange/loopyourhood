@@ -135,8 +135,6 @@ def my_profile(request):
   return render(request,'my_profile.html',context)  
 
 
-
-
 @login_required(login_url='/accounts/login')
 @user_has_hood
 def search_business(request):
