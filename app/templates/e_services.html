@@ -1,0 +1,144 @@
+{% extends 'base.html'%}
+{%load static%}
+{% block styles%}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'css/services.css' %}">
+{% endblock styles%}
+{%block content%}
+<div class="services-section">
+  <div class="inner-width">
+    <h1 class="section-title">Emergency Services</h1>
+    <div class="border"></div>
+    <div class="services-container">
+
+      <div data-toggle="modal" data-target="#hosModal" class="service-box">
+        <div class="service-icon">
+          <img src="{%static 'img/health.png'%}" width="70px" height="70px"/>
+        </div>
+        <div class="service-title">Hospitals</div>
+        <div class="service-desc">
+          Empowering People to Improve Their Lives.
+        </div>
+      </div>
+
+      <div data-toggle="modal" data-target="#polModal" class="service-box">
+        <div class="service-icon">
+          <img src="{%static 'img/police.png'%}" width="70px" height="70px"/>
+        </div>
+        <div class="service-title">Police Departments</div>
+        <div class="service-desc">
+          To Protect with Courage, To Serve with Compassion
+        </div>
+      </div>
+
+      <div data-toggle="modal" data-target="#fireModal" class="service-box">
+        <div class="service-icon">
+          <img src="{%static 'img/fire.png'%}" width="70px" height="70px"/>
+        </div>
+        <div class="service-title">Fire Departments</div>
+        <div class="service-desc">
+          A single phone call from you, and we rush immediately towards you; this is called care.
+        </div>
+      </div>
+
+
+
+      <div class="modal fade" id="hosModal" tabindex="-1" role="dialog" aria-labelledby="hosLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">{{h_services | length}} Hospitals in your Hood</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              {%for hos in h_services%}
+              <div class="infocardContainer">
+                <div id="main">
+                  <img src="{%static 'img/health.png'%}"/>
+                </div>
+                <div id="textbois">
+                  <h2 style="font-size: 1rem;">{{hos.name}}</h2>
+                  <h4 style="font-size: 0.9rem;">{{hos.location}}</h4>
+                  <a href="tel:{{hos.contact}}">Call {{hos.contact}}</a>
+                </div>
+              </div>
+              {%endfor%}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="polModal" tabindex="-1" role="dialog" aria-labelledby="polLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">{{p_services | length}} Police Stations in your Hood</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              {%for pol in p_services%}
+              <div class="infocardContainer">
+                <div id="main">
+                  <img src="{%static 'img/police.png'%}"/>
+                </div>
+                <div id="textbois">
+                  <h2 style="font-size: 1rem;">{{pol.name}}</h2>
+                  <h4 style="font-size: 0.9rem;">{{pol.location}}</h4>
+                  <a href="tel:{{pol.contact}}">Call {{pol.contact}}</a>
+                </div>
+              </div>
+              {%endfor%}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="modal fade" id="fireModal" tabindex="-1" role="dialog" aria-labelledby="fireLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">{{f_services | length}} Fire Stations in your Hood</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              {%for fire in f_services%}
+              <div class="infocardContainer">
+                <div id="main">
+                  <img src="{%static 'img/fire.png'%}"/>
+                </div>
+                <div id="textbois">
+                  <h2 style="font-size: 1rem;">{{fire.name}}</h2>
+                  <h4 style="font-size: 0.9rem;">{{fire.location}}</h4>
+                  <a href="tel:{{fire.contact}}">Call {{fire.contact}}</a>
+                </div>
+              </div>
+              {%endfor%}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      
+
+    
+    </div>
+  </div>
+</div>
+{%endblock%}
