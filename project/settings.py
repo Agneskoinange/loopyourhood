@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'app',
     'bootstrap3',
     'pyuploadcare.dj',
+    'users',
 ]
 
 MIDDLEWARE = [

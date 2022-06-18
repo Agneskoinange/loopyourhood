@@ -4,7 +4,7 @@ from pyuploadcare.dj.models import ImageField
 import datetime as dt
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from hood.models import NeighbourHood
+from app.models import NeighbourHood
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_photo = ImageField(blank=True, manual_crop="")
