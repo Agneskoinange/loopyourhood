@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+import django_heroku
 
 
 CSRF_TRUSTED_ORIGINS = ['https://heroku.com']
@@ -137,3 +138,5 @@ UPLOADCARE = {
     'pub_key': '0cabf90972fb0df60637',
     'secret': '49f08f82b117e6fa2a27',
 }
+
+django_heroku.settings(locals())
