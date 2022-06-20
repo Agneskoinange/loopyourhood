@@ -7,16 +7,30 @@
 {%block styles%}
 {{block.super}}
 <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+<style>
+  .hood-watch{
+    position:relative;
+    background-image: url("https://images.pexels.com/photos/1486785/pexels-photo-1486785.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-position: 50% 0%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+  }
+</style>
+
 {%endblock%}
 {%block content%}
 <div class="container mt-3 my-profile">
   <div class="card profile-card-1">
-    <img src="https://images.pexels.com/photos/946351/pexels-photo-946351.jpeg?w=500&h=650&auto=compress&cs=tinysrgb" alt="profile-sample1" class="background"/>
+    <img src="https://images.unsplash.com/photo-1597026405082-eda9beae7513?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="" class="background"/>
     {%if request.user.profile.profile_photo.cdn_url%}
-    <img src="{{request.user.profile.profile_photo.cdn_url}}" alt="avatar image" class="profile"/>
+    <img src="{{request.user.profile.profile_photo.cdn_url}}" alt="" class="profile"/>
     {%else%}
     <img src="https://www.iconfinder.com/data/icons/user-pictures/100/unknown-512.png" class="profile"
-    alt="avatar image" >
+    alt="" >
     {%endif%}
   <div class="card-content">
   <h2>{{profile.user.username}}<small>{{profile.bio}}</small><small><i class="fas fa-map-marker-alt mr-2"></i>{%if profile.location%}{{profile.location}}{%else%}None{%endif%}</small><small><i class="fas fa-phone-square"></i>{%if profile.contact%}{{profile.contact}}{%else%}None{%endif%}</small></h3>

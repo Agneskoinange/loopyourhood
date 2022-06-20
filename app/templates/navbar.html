@@ -42,10 +42,10 @@
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
          {%if request.user.profile.profile_photo.cdn_url%}
-         <img src="{{request.user.profile.profile_photo.cdn_url}}" width="28px" height="28px" alt="avatar image" class="rounded-circle z-depth-0"/>
+         <img src="{{request.user.profile.profile_photo.cdn_url}}" width="28px" height="28px" alt="" class="rounded-circle z-depth-0"/>
          {%else%}
          <img src="https://www.iconfinder.com/data/icons/user-pictures/100/unknown-512.png" class="rounded-circle z-depth-0"
-         alt="avatar image" width="28px" height="28px" >
+         alt="" width="28px" height="28px" >
          {%endif%}
      
         </a>
