@@ -183,13 +183,8 @@
     --margin: 0 1px 0 1px;
     border-radius: 25px;
   }
-  /*TODO: animate copy main transition style for info*/
-  .infocardContainer #textbois #hotlinks *:hover {
-    
-    
-  }
   
-  
+
   @media screen and (max-width:960px) {
     .service-box{
       max-width: 45%;
