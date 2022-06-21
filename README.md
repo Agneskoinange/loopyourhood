@@ -1,6 +1,6 @@
 # Loop Your Hood
 
-## By AGnes Koinange
+## By Agnes Koinange
 
 ## Description
 This is a Django application where users from a hood can alert each other on events and other important things happening in the hood.
@@ -23,24 +23,24 @@ https://loopyourhood.herokuapp.com/
 
 $ git clone https://github.com/Agneskoinange/loopyourhood.git
 
-Install and activate Virtual
+* Install and activate Virtual
 $ python3 -m venv virtual - source virtual/bin/activate  
-Install Dependencies
+* Install Dependencies
 $ pip install -r requirements.txt 
-Setup Database
-SetUp your database User,Password, Host then make migrate
+* Setup Database
+* SetUp your database User,Password, Host then make migrate
 
-python manage.py makemigrations hood 
-Now Migrate
+$ python manage.py makemigrations app
+* Now Migrate
 
 $ python manage.py migrate 
 * Run the application
 $ python3 manage.py runserver 
-Running the application
+* Running the application
 $ python3 manage.py runserver 
-Testing the application
+* Testing the application
 $ python3 manage.py test 
-Open the application on your browser 127.0.0.1:8000.
+* Open the application on your browser 127.0.0.1:8000.
 
 ## Technologies used
 * Python3.8
