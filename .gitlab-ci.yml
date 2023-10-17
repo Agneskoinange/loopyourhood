@@ -1,0 +1,45 @@
+stages:
+  - source control
+  - Integration
+  - deploy
+
+build:
+  stage: source control
+  before_script:
+      - pip3 install --upgrade virtualenv
+  script :
+    - virtualenv env
+    - source env/bin/activate
+    - pip install -r requirements.txt 
+
+sast:
+  stage: Integration 
+  script:
+    - pip install bandit
+    - bandit -r .  
+  artifacts:
+    paths:
+      - bandit.txt  
+  only:
+    - main
+
+dast:
+  stage: Integration
+  script:
+    # Update and install Nikto
+    - apt-get update -qy
+    - apt-get install -y libnet-ssleay-perl  # for SSL support in Nikto
+    - git clone https://github.com/sullo/nikto.git
+    - cd nikto/program
+
+    # Run Nikto scan on your app. Replace `your_app_url` with the appropriate URL.
+    - ./nikto.pl -output /tmp/nikto_output.xml -h your_app_url
+
+    # Move results to artifacts directory
+    - mv /tmp/nikto_output.xml $CI_PROJECT_DIR/nikto-results.xml
+
+  artifacts:
+    paths:
+      - nikto-results.xml
+  only:
+    - main

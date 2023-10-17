@@ -1,0 +1,33 @@
+version: 3
+
+db:
+
+  Image: postgres:latest
+
+  container name: looyourhood
+
+  environment:
+
+  POSTGRES USER: postgres
+
+  POSTGRES DB: loopyourhood POSTGRES PASSWORD : postgres
+
+  ports:
+
+      . 6379:6379
+
+web:
+
+  Build:
+
+    context:
+
+      dockerfile: Dockerfile container_name: express_app
+
+      volumes:
+
+      -.:/loopyourhood
+        ports:
+      depends on:
+
+        db

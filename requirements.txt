@@ -10,7 +10,6 @@ django-registration==3.1.1
 django-registration-redux==2.10
 djangorestframework==3.13.1
 idna==3.3
-psycopg2==2.8.6
 python-dateutil==2.8.2
 python-decouple==3.3
 pytz==2022.1
